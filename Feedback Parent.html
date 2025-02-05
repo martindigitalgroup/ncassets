@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Basic styling for your interactive options */
+    .option {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px;
+      background-color: #e0e0e0;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .option:hover {
+      background-color: #d0d0d0;
+    }
+  </style>
+</head>
+<body>
+  <div id="responses">
+    <div class="option" onclick="sendResponse('Excited')">Excited</div>
+    <div class="option" onclick="sendResponse('Neutral')">Neutral</div>
+    <div class="option" onclick="sendResponse('Disappointed')">Disappointed</div>
+  </div>
+
+  <script>
+    function sendResponse(response) {
+      // Send the selected response to the parent window
+      window.parent.postMessage({ field: 'response', value: response }, '*');
+    }
+  </script>
+</body>
+</html>
